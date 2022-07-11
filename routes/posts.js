@@ -47,4 +47,13 @@ router.delete('/:postID', async (req,res) => {
     }
 });
 
+// Update a post
+router.patch('./postId', (req,res) => {
+    try {
+    const updatedPost = await Post.updateOne({_id: req.params.postID}, {$set: {title: req.body.title}})
+    } catch (err) {
+        res.json({message: err});
+    }
+})
+
 module.exports = router;
