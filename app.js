@@ -19,7 +19,8 @@ app.get('/', (req,res) => {
 // Connect to database
 mongoose.connect(
     // Connects to our env file and the variable that represents the link with password
-    process.env.DB_Connection, () =>
+    process.env.DB_CONNECTION,
+    {useNewUrlParser: true}, () =>
     console.log("Connected to database")
 );
 
